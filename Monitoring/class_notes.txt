@@ -1,0 +1,127 @@
+Continuous Monitoring and DevOps on AWS Cloud Platform
+WeekEnd | 8pm-11pm
+
+#######################
+Day 1 - 6th July 2024
+#######################
+
+Continuous Monitoring :::
+
+	Why we need Continuous Monitoring ???
+	
+	Environments :::
+	
+	Non-Prod Environments								Prod Environments 
+	
+	
+		- Dev 
+		- Build 
+		- Test 
+			QA 
+			UAT						=====>					Production Servers
+			
+			
+	Stability 
+	
+	High Availability 
+	
+	Issues will lead to downtime 
+	
+	Continuous Monitoring :
+		- It ensures business Continuity 
+		
+		E_Commerce 				- www.amazon.com 
+		Online Reservation 		- air/railway tkt booking system
+		E_Learning 8PM IST 
+		
+			Monitoring Team -->
+			
+		Continuous Monitoring :::
+	
+	
+			Infra-Structure Monitoring
+			
+				--> Production Servers (1,2,3,4,5)
+						Process --> CPU Utilization of these servers reaches 100% , we cannot start any new process 
+									80% 
+										Kill some outdated process 
+										
+						Memory	--> Memory Utilization --> 75% 
+															Execute some script to scale up the volumes /
+															Clean-up the unwanted files/folders	
+						
+						Network Traffic -->
+						
+							Pod replicasets --> 10 Replicas of pod 	--> 100 Users 
+																		50000 Users
+																		
+								75% Limit 
+								Automate the scale-up																	
+					
+						Production Monitoring/Support Team - 24/7
+						
+						DevOps ???'
+						
+						
+						
+						Jenkins_Master 		--> Create CICD Pipeline Projects and schedule to run on Build Servers(Slave_Nodes)
+							Jenkins_Slave1 	--> Build, Artifacts 
+												1000 Microservices - build Java web application CI Pipeline
+													- download source code 
+													- create Artifacts 
+													- docker Application Image 
+												Memory Utilization --> 100% 
+												
+											Jenkins Job - Clean-up the workspace - every day 8pm evening! / Once in 2 Days
+											
+							Jenkins_Slave2 80 % webhook - jenkins - cleanup/add more volume/Attach new node.
+							
+							Monitoring Tool 
+	
+				- Prometheus/Grafana/Dynatrace/Nagios
+				
+			Application Monitoring
+			
+				- AppDynamics/DataDog/Nagios 
+				
+				Application Responses :::
+				
+				
+			Infra-Structure Monitoring :::
+			
+				Architecture of Monitoring Tool(Prometheus)
+				Components of the Architecture
+				Setup the Prometheus 
+				
+					Install Prometheus Tool / Service 
+					Create the Monitoring Dashboards/Metrics
+					
+				Prometheus 	 - Is a Monitoring Tool
+				
+				Grafana		 - Is a Visualization Tool 
+				
+		
+			Architecture of Prometheus :::
+			
+			Installation of Prometheus and Grafana
+			
+				1. Manual installation / Configuration 
+				
+				2. AWS Platform - VM --> Cloud Watch - Dashboards
+				
+				3. Hybrid Environments - Prometheus
+				
+				
+				Kubernetes Cluster ::		# prometheus can be executed as a pod
+										
+					Kubernetes Master 
+						Kubernetes_worknode1
+						Kubernetes_worknode2
+						Kubernetes_worknode3
+						Kubernetes_worknode4
+						
+				
+				
+				
+			
+
