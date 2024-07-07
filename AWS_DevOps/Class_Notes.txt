@@ -1,0 +1,187 @@
+#######################
+Day 2 - 7th July 2024
+#######################				
+				
+				
+	Prometheus & Grafana 
+				
+	1. Kubernetes Monitoring Pods and Deployments using Prometheus & Grafana.
+
+		- Install and Manage Prometheus & Grafana using Helm package Manager on Kubernetes_Cluster
+		
+	Pre-requisites:
+	
+		- Kubernetes 
+			- Deploy the pods using Deployment Controller Objects
+			- Access the Services running inside the pod using NodePort Service 
+			- Upgrade/Downgrade the Application Image 
+			- Scale-up/Down the No. of Pod instances 
+			
+		- Helm charts
+			Helm ???
+				- Package Manager for Kubernetes_Cluster.
+				
+				Linux Machines :
+				
+					apt-get 	- Install/Remove/Upgrade the Package 	- Debian/Ubuntu 
+					yum 												- Centos/RHEL
+					rpm 
+					dnf 												- Fedora
+	
+		DevOps :::
+		 
+			Application 
+
+	Environments :::
+	
+	Non-Prod Environments								Prod Environments 
+	
+	
+		- Dev 
+		- Build 
+		- Test 
+			QA 
+			UAT						=====>					Production Servers
+			
+	
+		GITHUB / Jenkins / Docker / Kubernetes		- CICD 
+		
+		
+		Non-Prod Kubernetes_Cluster 								Prod Kubernetes_Cluster 
+
+		K8s Cluster 
+		
+		
+		Kubernetes Namespaces :
+		
+			- Logical Partitioning of the Kubernetes Cluster
+			
+		All these core components are running as pods within kubernetes cluster 
+		
+		api-server				
+		etcd
+		scheduler
+		controller manager 
+		kube-proxy
+		kubelet
+		cri
+		core-dns
+		
+		Namespaces :
+		
+			kube-system 
+			
+			
+			Kubernetes_Cluster								- Install Prometheus & Grafana 
+				Worker_Node1,2,3,4,5,6,.....,150,,,200		- Install Prometheus & Grafana 
+				
+				
+	AWS DevOps Services ::::
+	
+		DevOps :::
+		
+			It is a Software Development Strategy which promotes the collaboration between the Teams like Development Team and Operations Teams to achieve Continuous Development, Continuous Integration, Continuous Testing, Continuous Delivery, Continuous Deployment, Continuous Monitoring in more automated fashion.
+			
+			
+			
+		SDLC Process :
+		Teams :::
+		
+			DevOps-Team 
+				Infra-Structure Management Team 		--> Terraform,Ansible
+				Application Development Team 			--> IDEs, Sonarlint, GIT/GITHUB, Jenkins 
+				Testing Team 							--> Jenkins, Selenium/Selenium-Grid,TestNG,JUNIT
+				Release Management Team 				--> Jenkins,Ansible,Docker,Kubernetes
+				Production Support/Monitoring Team 		--> Prometheus/Grafana
+				Security Administration Team 			--> Code-Quality Analyzer Tools - SonarQube
+				
+		
+		DevOps based on three factors :
+		
+			- People 
+			- Process 
+			- Tools 
+			
+		
+		DevOps Tools ::
+		
+			Open-Source DevOps Tools :
+			
+				GIT,GITHUB,Jenkins,Docker,Kubernetes,Ansible,Terraform,Prometheus,Grafana
+			
+			
+			Managed Services(Licensed Product)
+				- Cloud Service Providers and Verified Vendor Products - DevOps Tools and Services 
+				
+				
+				AWS 	--> AWS Code Commit, Code Build, Code Deploy, Code Artifacts, Code Pipeline
+				Azure	--> Azure DevOps Services - AzBoards,AzRepo,AzPipeline,AzTest,AzArtifact 
+				GCP 	--> DevOps Service
+			
+		
+			
+			Detailed DevOps Assessment :
+			
+			AWS DevOps Services ::::
+			
+				AWS 	--> AWS Code Commit(GITHUB), Code Build(Jenkins), Code Deploy, Code Artifacts, Code Pipeline(Jenkins)
+				
+				AWS Services :
+				
+					EC2 
+					
+					S3 
+					
+					IAM 
+					
+					AWS DevOps Services :
+						AWS Code Commit, Code Build, Code Deploy, Code Artifacts, Code Pipeline
+						
+					ECS,ECR(dockerhub),EKS 
+					
+					
+			Manage Application Source Code ::::
+			
+				AWS Code Commit :
+				
+			AWS DevOps Services ::::	
+			
+				AWS strongly recommend to avail the AWS DevOps Services as IAM User. NOT as a root user.
+				
+				
+				Create IAM User Account_ID on AWS Platform 
+				
+				
+				
+			GIT Module :::
+			
+				Github Repositories ::
+					git bash / Terminal ?
+					
+					Visual Studio Code IDE ?
+					
+					
+					
+					https://git-codecommit.ap-south-1.amazonaws.com/v1/repos/dcpwe-javaapp-repo1
+					
+					
+				Distributed Version Control System :::
+				
+					Local Machine 							Remote Server
+						Local git Repositories					Remote git Repositories
+					
+						git client								GIT Based tool 
+																(github)
+																	branches and perform parallel development
+																	
+																gitlab 
+																bitbucket
+																aws code commit 
+																azure repository
+																
+						IDEs - Integrated Development Environment 
+
+						Eclipse IDE 		- Develop the Code, integrate the code to remote repositories(github/aws-codecommit)
+						Pycharm 
+						IntelliJ
+						VSC 
