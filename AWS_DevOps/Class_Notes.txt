@@ -185,3 +185,323 @@ Day 2 - 7th July 2024
 						Pycharm 
 						IntelliJ
 						VSC 
+
+
+
+#######################
+Day 3 - 13th July 2024
+#######################					
+
+
+AWS DevOp Services ::
+	AWS Code Commit(GITHUB), Code Build(Jenkins), Code Deploy, Code Artifacts, Code Pipeline(Jenkins)
+
+AWS Code Commit :
+
+	Version control the source code.
+	
+	
+	Create Repo 
+	Create Create/edit files
+	Commit the changes
+	
+	Create Branches	==> Used to enable the parallel development 
+		dev 
+		feature
+		
+		master branch (prod copy of the src_code)				
+		
+		Pull Request 
+
+	Branching Strategies :::
+	
+		--> 
+		
+		Source_Code Repository 
+		
+			Repo1
+				master branch 	(prod copy of the src_code)	
+				
+					- At any point of time, integrity of the master should be maintained.
+	
+	Branching Strategies	
+
+	
+	
+		Repo1
+	
+	Branching Techniques :				
+		Merge 
+		Rebase				
+		Squash					 # Used to Combine more than one commit points to one commit point	
+		stash 					 # Used to save the uncommited changes to a temp area with the git repository
+		cherry-pick 			 # Used to merge specific commit to the target branch 
+		
+		
+	Branching Strategies :
+	
+	Scenario 1:	single user & No Parallel Development Involved 
+	
+		Repo1 
+			master - cm1,cm2,cm3,cm4
+			
+	Scenario 2:
+
+		Repo1 
+			master  - cm1,cm2,cm3
+					- cm1,cm2,cm3,f1cm1,f1cm2,f1cm3		# upon merging feature1
+			
+			
+				feature1 - cm1,cm2,cm3,f1cm1,f1cm2,f1cm3
+
+	Scenario 3:	True parallel Deployment - to preven merge conflict on the master branch
+
+		Repo1 
+			master  - cm1,cm2,cm3
+					- cm1,cm2,cm3,Developer_Branch_Changes
+			
+				Developer_Branch 	- cm1,cm2,cm3
+									- cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,f2cm1,f2cm2,f2cm3	# upon merging f1 & f2 branches
+				
+					feature1 - cm1,cm2,cm3,f1cm1,f1cm2,f1cm3
+					
+					feature2 - cm1,cm2,cm3,f2cm1,f2cm2,f2cm3
+					
+					
+	Scenario 4:
+		Repo1 
+			master  - cm1,cm2,cm3
+			
+				Integration_Branch  - cm1,cm2,cm3
+									- cm1,cm2,cm3,Developer1_Branch_Changes,Developer2_Branch_Changes
+									
+					Developer1_Branch 	- cm1,cm2,cm3
+										- cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,f2cm1,f2cm2,f2cm3	# upon merging f1 & f2 branches
+					
+						feature1 - cm1,cm2,cm3,f1cm1,f1cm2,f1cm3						
+						feature2 - cm1,cm2,cm3,f2cm1,f2cm2,f2cm3			
+
+					Developer2_Branch 	- cm1,cm2,cm3
+										- cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,f2cm1,f2cm2,f2cm3	# upon merging f1 & f2 branches
+					
+						feature1 - cm1,cm2,cm3,f1cm1,f1cm2,f1cm3						
+						feature2 - cm1,cm2,cm3,f2cm1,f2cm2,f2cm3	
+						
+
+	Scenario 5:
+		Repo1 
+			master  - cm1,cm2,cm3
+						- cm1,cm2,cm3,cm4			# cm4 is the integration of Team1 and Team2 Changes
+						
+				Release_Branch  - cm1,cm2,cm3
+								- cm1,cm2,cm3,Team1_Changes,Team2_Changes
+								
+					Integration_Branch1  - cm1,cm2,cm3															# Team1
+										- cm1,cm2,cm3,Developer1_Branch_Changes,Developer2_Branch_Changes
+										
+						Developer1_Branch 	- cm1,cm2,cm3
+											- cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,f2cm1,f2cm2,f2cm3	# upon merging f1 & f2 branches
+						
+							feature1 - cm1,cm2,cm3,f1cm1,f1cm2,f1cm3						
+							feature2 - cm1,cm2,cm3,f2cm1,f2cm2,f2cm3			
+
+						Developer2_Branch 	- cm1,cm2,cm3
+											- cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,f2cm1,f2cm2,f2cm3	# upon merging f1 & f2 branches
+						
+							feature1 - cm1,cm2,cm3,f1cm1,f1cm2,f1cm3						
+							feature2 - cm1,cm2,cm3,f2cm1,f2cm2,f2cm3	
+
+					Integration_Branch2  - cm1,cm2,cm3															# Team2
+										- cm1,cm2,cm3,Developer1_Branch_Changes,Developer2_Branch_Changes
+										
+						Developer1_Branch 	- cm1,cm2,cm3
+											- cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,f2cm1,f2cm2,f2cm3	# upon merging f1 & f2 branches
+						
+							feature1 - cm1,cm2,cm3,f1cm1,f1cm2,f1cm3						
+							feature2 - cm1,cm2,cm3,f2cm1,f2cm2,f2cm3			
+
+						Developer2_Branch 	- cm1,cm2,cm3
+											- cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,f2cm1,f2cm2,f2cm3	# upon merging f1 & f2 branches
+						
+							feature1 - cm1,cm2,cm3,f1cm1,f1cm2,f1cm3						
+							feature2 - cm1,cm2,cm3,f2cm1,f2cm2,f2cm3
+							
+							
+							
+		git merge <branch_name>
+		
+		git merge --squash <branch_name>
+		
+		
+		
+		
+	CODE Build Service ::::
+	
+	
+		Application Build ??? 
+		
+			- Build is a process of compiling the source code and creating artifacts - (Binaries - *.war / *.jar / *.exec / *.dll)
+			
+			
+	Jenkins 
+	
+		Jenkins_Master
+			Jenkins_Slave1 
+	
+	Kubernetes 
+	
+		CICD Pipeline :::
+		
+			- SCM_Checkout 
+			- Application Build 	Java 
+				- Create Build_Server 
+				- Install Build Tools 
+				- Setup the Build Parameters 
+					mvn clean package 
+				
+			- Deploy to Target Environments 
+			
+			
+	AWS Code Build Service :::
+	
+		- Is used to Build the Application and Create Artifact 
+			Maintain the artifacts in the s3 bucket
+		
+	AWS CodeDeploy ::::
+	
+	
+	AWS CodePipeline ::::
+	
+	CICD Pipeline using Jenkins Docker, Kubernetes ???
+	
+		Stages of the pipeline ????		
+		
+			SCM_Checkout
+			Application Build				# Output : *.war 
+			Docker Build using Dockerfile	# Output : app_Image:v1.0
+			Login to DockerHub 
+			Push the Image to DockerHub 
+			Deploy to Kubernetes_Cluster
+			
+			
+	Deployment ?????	
+		
+		What is Deployment ???
+		
+			Build Environment 		- *.war --> myappimg:v1.0 --> myappimg:v2.0
+			
+			QA Environment 	 		- *.war
+
+			UAT Environment 	 	- *.war
+			
+			PROD Environment 	 	- *.war
+			
+			
+		Deployment Strategies :::
+		
+		
+		- Rolling-Update Deployment Strategy 
+		
+			- Able to up-grade/down-grade the applications without any downtime.
+		
+		
+		Kubernetes_Cluster
+			Kubernetes_WorkerNode1		myappimg:v1.0 --> 	myappimg:v2.0
+			Kubernetes_WorkerNode2		myappimg:v1.0 -->   myappimg:v2.0
+			Kubernetes_WorkerNode3		myappimg:v1.0 -->   myappimg:v2.0
+			
+	
+		Environments:
+		
+			Non-Prod											Production Environments
+			
+			Dev Environment
+			Build Environment
+			Testing Environments
+				QA Environment
+				UAT Environment				=====> 					Prod Server(s)
+				
+				
+		Managed Services :::
+		
+		Open Source Tools :
+			git/jenkins/docker/kubernetes/ansible/terraform
+			
+			
+		AWS DevOps Services::
+		
+			Source Code Repositories to maintain all the components 		
+				Dockerfile # To Create Application Image
+				
+		
+	
+		Build Server - Demo ::::
+		
+		
+			Deployment of Applications :::
+			
+				- Containerize the Application
+				
+				- s3 Bucket : 
+				
+					create docker image 
+					
+					push the docker image to container registry 
+					
+					Deploy that docker Image to Kubernetes Cluster
+					
+					
+			Container Services :::
+			
+			Terminologies ::
+			
+				Docker Engine
+				
+				Container Image : 
+					- Static file that defines the properties(Application and its dependencies) of Container 
+					- Images are non-executable 
+					- It composed of various layers create using Dockerfile Instructions 
+					
+					FROM 
+					COPY	--> Used to copy the files from remote machine volume to container volume
+					ADD 	--> Used to copy the files from remote machine volume to container volume and also download the contents from weburl into container volume
+					RUN 	--> Package manager Service - APT/YUM 
+					CMD 	--> Used to define the startup task to a container.
+					
+				
+				Container 
+				
+					- Containers are the executable entity of Container Image
+					- Using the Base Image Container can be executed
+					
+				
+				Container Registry 			dockerhub - 
+					- Used to maintain/version control the container images 
+					
+				
+				Container Repositories
+					- It is subset of Container Registry 
+				
+				Docker Run 
+				
+					- Used to Create Container and runs the container based on the execution mode
+
+					- Interactive Mode 
+					- Background Mode 
+					- Foreground Mode 
+					
+				Build Container Image 
+				
+					- Dockerfile 
+					
+					- Docker Commit
+				
+			Container Registry :::
+			
+				Dockerhub 
+		
+		
+			AWS : ECS,ECR,EKS 
+			
+				
+				
