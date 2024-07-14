@@ -503,5 +503,81 @@ AWS Code Commit :
 		
 			AWS : ECS,ECR,EKS 
 			
-				
+
+
+#######################
+Day 4 - 14th July 2024
+#######################	
+	
+	
+		AWS : ECS,ECR,EKS  ===> 
+		
+		
+		Source Code Repository in github
+		
+		
+		Kubernetes ::
+			Installation and Configuration using kubeadm :
+			
+			Deploy the pods and monitor using prometheus/grafana using HELM Package Manager 
+			
+			(or) 
+			
+			minikube 
+			
+		Terraform 
+		
+		
+		IAC Tools :::
+		
+			Infra-Structure As Code :
+			
+				Terraform/Cloudformation
+
+		
+	Kubernetes ::
+		Installation and Configuration using kubeadm :
+		
+												Build_Server (jdk,git,maven)		Tomcat_Server (jdk,tomcat,start_tomcat_Service)
+		Pre-requisites																
+		
+		Install kubernetes components 
+		
+		Post-Installation Activities 
+		
+		
+		Official Documentation ::::
+		
+			https://kubernetes.io/docs/setup/
+		
+		
+		Kubernetes_Master 				private ip_addr
+			Kubernetes_WorkerNode1
+			Kubernetes_WorkerNode2
+			
+			
+		
+		Launch the Required no. of nodes 
+		
+		Master_Node & Worker_Nodes 
+		
+		Terraform
+		
+		shell script / groovy scripting / yaml scripting / python scripting 
+		
+		
+		Terraform 
+		Cloud formation templates
+		EKS, EBS
+		Monitoring Kubernetes using Prometheus/Grafana
+		Overview of Nagios
+			
+		Linux - ?
+		
+		
+		
+		dev - qa - uat - prod 
+		
+		
+		
 				
