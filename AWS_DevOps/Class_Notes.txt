@@ -579,5 +579,89 @@ Day 4 - 14th July 2024
 		dev - qa - uat - prod 
 		
 		
+
+#######################
+Day 5 - 20th July 2024
+#######################	
+
+
+	AWS Code Commit
+	
+	AWS Code Build 
+	
+	Setup the Kubernetes Cluster
+	
+	
+	Deployments ::
+	
+		- On EC2 Instance 		
+		
+		- Code Deploy 
+		
+		- Code Pipeline 
+		
+	AWS Code Deploy Service to Deploy the Application on EC2 
+	
+	Springboot web application 
+	
+	
+	AWS Code Build ::::
+	
+	
+	
+	AWS Code Deploy Service 
+	
+	AWS Code Pipeline Service 
+	
+
+	
+edu-webapp-bp1-role1
+
+edu-webapp-cd-role1				# Code Deploy used during Code Deploy Application Creation 
+
+
+edu-webapp-cd-ec2-policy		# policy to attach with EC2 Instance Role
+
+edu-webapp-cd-ec2-role			# Should be attached to the EC2 Instance 
+
+https://loksai-webapp-s3-bucket.s3.ap-south-1.amazonaws.com/loksai-webapp-dir1/loksai-webapp-cbproj1
+
+
+Using CodeDeploy :
+
+	Target Server : Install the CodeDeploy Agent
+	
+	Install Code Deploy Agent for Amazon Linux2 :
+	https://docs.aws.amazon.com/codedeploy/latest/userguide/codedeploy-agent-operations-install-linux.html
+	
+	Resource kit Bucket Name reference:
+	
+	https://docs.aws.amazon.com/codedeploy/latest/userguide/resource-kit.html#resource-kit-bucket-names
+
+	Target Server : Install the CodeDeploy Agent
+	
+edu-webapp-cd-application1
+
+edu-webapp-cd-application1-dg
+
+Blue Green Deployment ::
+
+Deployment Server1		--> LIVE Environment - Active  v1.0 - Truncate this 
+
+Deployment Server2		--> Passive Environment -> v2.0			ACTIVE 
+
+Major Releases 
+
+Minor Releases
+ 
+https://loksai-webapp-s3-bucket.s3.ap-south-1.amazonaws.com/loksai-webapp-dir1/loksai-webapp-cbproj1
+
+
+CodeDeploy!
+
+Automate :
+
+Code Pipeline ::::
+
 		
 				
