@@ -1,0 +1,61 @@
+AWS ::
+
+AZURE ::
+
+RHEL/Amazon Linux ::
+
+#!/bin/bash
+sudo yum update
+sudo yum install ruby
+sudo yum install wget
+sudo yum install java-11-amazon-corretto
+sudo yum install java-11-amazon-corretto-devel
+sudo yum -y install tomcat8
+cd /home/ec2-user
+wget https://aws-codedeploy-ap-south-1.s3.ap-south-1.amazonaws.com/latest/install
+chmod +x ./install
+sudo ./install auto
+
+
+Ubuntu ::
+
+#!/bin/bash
+sudo apt update
+sudo apt install ruby
+sudo apt install wget
+sudo apt install openjdk-17-jre -y
+sudo apt -y install tomcat8
+cd /home/ubuntu
+wget https://aws-codedeploy-ap-south-1.s3.ap-south-1.amazonaws.com/latest/install
+chmod +x ./install
+sudo ./install auto
+
+
+
+Tomcat runs in port 8080 
+
+syntax:
+
+wget https://<bucket-name>.s3.<region-identifier>.amazonaws.com/latest/install
+
+bucket-name: aws-codedeploy-ap-south-1
+
+region-identifier: ap-south-1
+
+https://aws-codedeploy-ap-south-1.s3.ap-south-1.amazonaws.com/latest/install
+
+
+
+systemctl status codedeploy-agent
+
+systemctl start codedeploy-agent
+
+systemctl status codedeploy-agent
+
+
+Verify Installation using User Data
+----------------------------------
+sudo service codedeploy-agent status
+sudo java -version
+sudo service tomcat status
+sudo service tomcat start
