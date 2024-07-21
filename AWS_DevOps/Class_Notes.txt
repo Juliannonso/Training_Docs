@@ -663,5 +663,205 @@ Automate :
 
 Code Pipeline ::::
 
+
+#######################
+Day 6 - 21st July 2024
+#######################	
+
+	Deployments using Kubernetes (Container Orchestration Tool)
+	
+	Containerized Application
+	
+	Docker - Container Engine.
+	
+		Create application Images 
+		
+		Published to Container Registry 
+		
+		Deployed to Kubernetes_Cluster 
+		
+	
+	Kubernetes Objects :
+	
+		- Controller Object 
+			Deployment Controller Object ?
+			
+		- Service 
+			- NodePort 
+			
+
+Jenkins CICD Pipeline :
+
+Stages of the CICD :::	
+
+1. SCM_Checkout
+2. Build using Maven 		*.war 
+3. Deployed the artifacts to Target Server  *.war 
+
+CICD 
+
+Microservices ::
+
+Containerize the Service :
+
+CICD Pipeline :
+
+1. SCM_Checkout
+2. Application Build 	-> output : artifacts - *.war / *.jar 
+3. Docker Build 		-> output : Application Image using Dockerfile 
+4. Login to Dockerhub Registry
+5. Push Application Image to Dockerhub Registry 
+6. Deploy the Application Image to Kubernetes_Cluster
+
+
+Infra-Structure ::
+
+	Servers:
+	
+		Jenkins_Master 				#	Create CICD Pipeline Projects & Schedule to run on slave nodes.
+			Build_Server 			# 	Run the Builds & Create Artifacts
+									#	Build Docker Image, Publish the Image to Container Registry 
+		Kubernetes_Master 			# 	Target Environment - QA/UAT/PROD
+			Kubernetes_WorkerNode1
+			Kubernetes_WorkerNode2
+	
+	
+	Tools: 
+		
+		Jenkins_Master 				#	git,jdk,Jenkins
+			Build_Server 			#	git,jdk,maven,docker	SCM_Checkout - *.yaml
+		Kubernetes_Master 			#	Kubernetes Component 
+			Kubernetes_WorkerNode1
+			Kubernetes_WorkerNode2
+		
+	Integrate the Servers:
+	
+		Jenkins_Master 				#  Jenkins Node configuration 
+			Build_Server
+			
+		Jenkins Master should be integrated with Kubernetes_Master 
+			- using Publish over ssh plugins
+			- SSH Command - SCP 
+
+
+	CICD Pipeline :
+		slave_Node
+
+
+	Jenkins_Master 				#	Create CICD Pipeline Projects & Schedule to run on slave nodes.
+		Build_Server 			# 	Run the Builds & Create Artifacts
+								#	Build Docker Image, Publish the Image to Container Registry 
+
+
+	1. SCM_Checkout
+	2. Application Build 	-> output : artifacts - *.war / *.jar 
+	3. Docker Build 		-> output : Application Image using Dockerfile 
+	4. Login to Dockerhub Registry
+	5. Push Application Image to Dockerhub Registry 
+	
+	Kubernetes_Master 			#
+		Kubernetes_WorkerNode1
+		Kubernetes_WorkerNode2
+	
+	6. Deploy the Application Image to Kubernetes_Cluster
+	
+	
+	Infra-Structure
+	Deployment Environments:::
+	
+	Non-Prod :::
+	
+		Dev 		pod 
+		QA 			pod 	
+		UAT			pod  
+
+		Kubernetes_Master 	(Non-Prod - Kubernetes_Cluster)
+			Kubernetes_WorkerNode1
+			Kubernetes_WorkerNode2
+			
+		Dev - Namespace
+		QA 	- Namespace
+		UAT - Namespace
+
+
+	Production Environments :::	
+	
+		Kubernetes_Master 	(Prod - Kubernetes_Cluster)
+			Kubernetes_WorkerNode1
+			Kubernetes_WorkerNode2
+
+		ACTIVE 	- Namespace		--> LIVE Application	--> v1.0
+		
+		PASSIVE - Namespace 	--> Deploy	v2.0	
+		
+		Blue Green Deployment!
+		
+		
+		
+
+
+
+
+	
+	
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: loksai-eta-deploy
+  labels:
+    app: loksai-eta-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: loksai-eta-app
+  template:
+    metadata:
+      labels:
+        app: loksai-eta-app
+    spec:
+      containers:
+      - name: loksai-eta-container
+        image: loksaieta/loksai-eta-app
+        ports:
+        - containerPort: 8080
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: loksai-eta-np-service
+  labels:
+    app: loksai-eta-app
+spec:
+  selector:
+    app: loksai-eta-app
+
+  type: NodePort
+  ports:
+  - nodePort: 31028
+    port: 8080
+    targetPort: 8080
+
+
+#On Build Server :
+
+apt install awscli -y 				# AWS CLI 
+
+aws configure 
+
+aws access code 
+aws secret
+aws region 
+
+NF4RQ
+
+/
+
+ap-south-1
+
+docker tag loksaieta/loksai-eta-app:latest 471112633224.dkr.ecr.ap-south-1.amazonaws.com/edu-ecr1:latest
+loksaieta/loksai-eta-app
 		
 				
