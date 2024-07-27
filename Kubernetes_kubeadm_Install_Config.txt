@@ -298,16 +298,24 @@ On Kubernetes Master Node ::
 #Add User : 
 
 useradd devopsadmin -s /bin/bash -m -d /home/devopsadmin
+sudo passwd devopsadmin
+
+#As a root user edit below file:
+
+visudo
+
+#add the below mentioned line in the file and save it.
+
+devopsadmin ALL=(ALL) NOPASSWD: ALL
 
 su - devopsadmin
 
 #ssh-keygen
 
 #for Ubuntu ::
-#ssh-keygen -t rsa -b 2048 -m PEM								#ubuntu 20.04
+#ssh-keygen -t rsa -b 2048 -m PEM					#ubuntu 20.04
 
-ssh-keygen -t ecdsa -b 521										#ubuntu 22.04 or higher version of ubuntu				
-
+ssh-keygen -t ecdsa -b 521			#ubuntu 22.04 or higher version of ubuntu				
 
 ls ~/.ssh 
 
@@ -323,19 +331,17 @@ cat id_ecdsa.pub > authorized_keys
 
 chmod 600 /home/devopsadmin/.ssh/*
 
-# Install Docker Engine in the Slave Node :
-apt install docker.io
+########## Install Docker Engine in the Slave Node : #########
+
+#check if docker is installed
+
+docker --version
+#Install Docker Engine in the Slave Node
+
+apt install docker.io or snap install docker
 
 usermod -aG docker devopsadmin			
 
-
-#As a root user edit below file:
-
-$ visudo
-
-#add the below mentioned line in the file and save it.
-
-devopsadmin ALL=(ALL) NOPASSWD: ALL
 
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
