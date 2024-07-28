@@ -123,5 +123,40 @@ Continuous Monitoring :::
 				
 				
 				
+
+
+#######################
+Day 8 - 28th July 2024
+#######################	
+
+	Monitoring and AWS DevOps Services :
+	
+	IAC Tools - Terraform - shell - cloudformation
+
+	Kubernetes ::
+	
+		Deployment :
+		
+		HELM Charts ::
+		
+			Helm Chart is a package manager for kubernetes!
 			
+			kubernetes Dashboard 
+			
+			Monitoring - Prometheus/Grafana 
+			
+			
+			Install helm! on Kubernetes master
+			
+			install 
+			
+	VM :
+	
+		Install any package ?
+			Package manager like yum / apt / dnf
+			
+		Package :
+		
+			kubernetes
+				Kubernetes_WorkerNode1,2,3,4,5			
 
