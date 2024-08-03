@@ -1,0 +1,157 @@
+
+
+#######################
+Day 7 - 27th July 2024
+#######################	
+
+
+	Nagios Monitoring Tool:
+
+
+	Daemonset ?
+	
+		- Used to Deploy a copy of pod in all the worker nodes
+		- Kubernetes Administration:
+			Monitor the cluster 
+			Exec the logging tools in all the worker nodes 
+			
+			docker hub 
+				image - prometheus/grafana 
+				logger tools - influentd
+		
+		
+	Replicaset (vs) Daemonset 
+	
+	Replicaset ?
+		
+		- Used to Deploy specific no. of pods in the worker nodes 
+	
+	
+	pod - replicasets - 3 :
+	
+	Kubernetes_Master
+		Kubernetes_WorkerNode1	2	4 3	1	1
+		Kubernetes_WorkerNode2	2	1 3	1	1
+		Kubernetes_WorkerNode3	2	1	1	1	
+		
+
+
+Infra-Structure Structure Provisioning :::
+
+	IAC Tools :
+	
+		Server templates 		Configuration Management		Server Provisioning 
+		
+		
+		Docker Image				ansible/chef/puppet				terraform/Cloudformation templates(AWS)/ARM(Azure)
+		
+		AMI to spinup the VMs
+		create own ami 
+		
+		
+IAC Tools :
+
+	Cloudformation 
+	
+	
+	Terraform :::
+	
+		Use case of Terraform
+		
+		Install and work with terraform
+		
+		Terraform Registry
+		
+		
+		
+	Terraform Working Model :::
+	
+		Identify the scope		- Target Environment 							EC2 instance	/  Virtual Machine 
+		Write the terraform script based on the target Environment 
+		Terraform Init	- To download the terraform Provider to the terraform project
+		Terraform Plan  - To preview the script 
+		Terraform Apply - Implement the actual changes in the target platform 
+		
+	Terraform Registry 
+	
+	Terraform Installation		https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
+	
+	
+	Terraform Statefile    	# Is used to maintain the current state of the Target Environment.
+							# Prevent the duplicate resources
+	
+	Using Terraform ::
+	
+		====>  Create/Add Resource 			+ 
+		
+		====>  Destroy/Delete Resource 		-
+			
+		====>  Change/Alter Resource 		~ 
+		
+		
+	Related to DevOps ???
+	
+	Jenkins :
+	
+	pipeline:
+	
+		- scm_checkout
+		- build
+		- deploy to tomcat server
+		
+		
+	adhoc request - hotfix prod
+	
+	
+	Dynamically Create some test servers - adhoc request - hotfix
+	
+	Scenario 1:
+	
+		Pipeline 1:
+		
+			scm_checkout --> Create Test Server(Terraform) --> Configure Test server(Ansible)
+			
+		Pipeline 2: CI/CD
+			
+			- scm_checkout --> build --> deploy to Newly created test server		
+		
+	GITOps ::
+
+	Scenario 2:
+	
+		Pipeline 1:
+
+			scm_checkout --> build --> Create Test Server(Terraform) --> Configure Test server(Ansible) --> deploy to Newly created test server
+																														|
+																														|
+																														|
+																													  QA Testing
+																													    |
+																														|
+																														|
+			
+
+	Scenario 3: - Best Practise!
+	
+		Pipeline 1:
+
+			scm_checkout --> build --> Create Test Server(Terraform) --> Configure Test server(Ansible) --> deploy to Newly created test server 
+																														|
+																														|
+																														|
+																													  QA Testing
+																													    |
+																														|
+																														|
+																												Delete the Test Server(Terraform) 
+																												
+																												
+																											
+																											
+	Working with Terraform ::
+	
+		Install terraform in local windows machine 
+			https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
+			
+		Visual Studio Code IDE To create Terraform scripts
+			https://code.visualstudio.com/download

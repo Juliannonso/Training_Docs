@@ -1,0 +1,1189 @@
+Continuous Monitoring and DevOps on AWS Cloud Platform
+WeekEnd | 8pm-11pm
+
+
+https://github.com/DCP-AWS-DevOps/Training_Docs
+
+#######################
+Day 1 - 6th July 2024
+#######################
+
+Continuous Monitoring :::
+
+	Why we need Continuous Monitoring ???
+	
+	Environments :::
+	
+	Non-Prod Environments								Prod Environments 
+	
+	
+		- Dev 
+		- Build 
+		- Test 
+			QA 
+			UAT						=====>					Production Servers
+			
+			
+	Stability 
+	
+	High Availability 
+	
+	Issues will lead to downtime 
+	
+	Continuous Monitoring :
+		- It ensures business Continuity 
+		
+		E_Commerce 				- www.amazon.com 
+		Online Reservation 		- air/railway tkt booking system
+		E_Learning 8PM IST 
+		
+			Monitoring Team -->
+			
+		Continuous Monitoring :::
+	
+	
+			Infra-Structure Monitoring
+			
+				--> Production Servers (1,2,3,4,5)
+						Process --> CPU Utilization of these servers reaches 100% , we cannot start any new process 
+									80% 
+										Kill some outdated process 
+										
+						Memory	--> Memory Utilization --> 75% 
+															Execute some script to scale up the volumes /
+															Clean-up the unwanted files/folders	
+						
+						Network Traffic -->
+						
+							Pod replicasets --> 10 Replicas of pod 	--> 100 Users 
+																		50000 Users
+																		
+								75% Limit 
+								Automate the scale-up																	
+					
+						Production Monitoring/Support Team - 24/7
+						
+						DevOps ???'
+						
+						
+						
+						Jenkins_Master 		--> Create CICD Pipeline Projects and schedule to run on Build Servers(Slave_Nodes)
+							Jenkins_Slave1 	--> Build, Artifacts 
+												1000 Microservices - build Java web application CI Pipeline
+													- download source code 
+													- create Artifacts 
+													- docker Application Image 
+												Memory Utilization --> 100% 
+												
+											Jenkins Job - Clean-up the workspace - every day 8pm evening! / Once in 2 Days
+											
+							Jenkins_Slave2 80 % webhook - jenkins - cleanup/add more volume/Attach new node.
+							
+							Monitoring Tool 
+	
+				- Prometheus/Grafana/Dynatrace/Nagios
+				
+			Application Monitoring
+			
+				- AppDynamics/DataDog/Nagios 
+				
+				Application Responses :::
+				
+				
+			Infra-Structure Monitoring :::
+			
+				Architecture of Monitoring Tool(Prometheus)
+				Components of the Architecture
+				Setup the Prometheus 
+				
+					Install Prometheus Tool / Service 
+					Create the Monitoring Dashboards/Metrics
+					
+				Prometheus 	 - Is a Monitoring Tool
+				
+				Grafana		 - Is a Visualization Tool 
+				
+		
+			Architecture of Prometheus :::
+			
+			Installation of Prometheus and Grafana
+			
+				1. Manual installation / Configuration 
+				
+				2. AWS Platform - VM --> Cloud Watch - Dashboards
+				
+				3. Hybrid Environments - Prometheus
+				
+				
+				Kubernetes Cluster ::		# prometheus can be executed as a pod
+										
+					x
+						
+
+
+#######################
+Day 2 - 7th July 2024
+#######################				
+				
+				
+	Prometheus & Grafana 
+				
+	1. Kubernetes Monitoring Pods and Deployments using Prometheus & Grafana.
+
+		- Install and Manage Prometheus & Grafana using Helm package Manager on Kubernetes_Cluster
+		
+	Pre-requisites:
+	
+		- Kubernetes 
+			- Deploy the pods using Deployment Controller Objects
+			- Access the Services running inside the pod using NodePort Service 
+			- Upgrade/Downgrade the Application Image 
+			- Scale-up/Down the No. of Pod instances 
+			
+		- Helm charts
+			Helm ???
+				- Package Manager for Kubernetes_Cluster.
+				
+				Linux Machines :
+				
+					apt-get 	- Install/Remove/Upgrade the Package 	- Debian/Ubuntu 
+					yum 												- Centos/RHEL
+					rpm 
+					dnf 												- Fedora
+	
+		DevOps :::
+		 
+			Application 
+
+	Environments :::
+	
+	Non-Prod Environments								Prod Environments 
+	
+	
+		- Dev 
+		- Build 
+		- Test 
+			QA 
+			UAT						=====>					Production Servers
+			
+	
+		GITHUB / Jenkins / Docker / Kubernetes		- CICD 
+		
+		
+		Non-Prod Kubernetes_Cluster 								Prod Kubernetes_Cluster 
+
+		K8s Cluster 
+		
+		
+		Kubernetes Namespaces :
+		
+			- Logical Partitioning of the Kubernetes Cluster
+			
+		All these core components are running as pods within kubernetes cluster 
+		
+		api-server				
+		etcd
+		scheduler
+		controller manager 
+		kube-proxy
+		kubelet
+		cri
+		core-dns
+		
+		Namespaces :
+		
+			kube-system 
+			
+			
+			Kubernetes_Cluster								- Install Prometheus & Grafana 
+				Worker_Node1,2,3,4,5,6,.....,150,,,200		- Install Prometheus & Grafana 
+				
+				
+	AWS DevOps Services ::::
+	
+		DevOps :::
+		
+			It is a Software Development Strategy which promotes the collaboration between the Teams like Development Team and Operations Teams to achieve Continuous Development, Continuous Integration, Continuous Testing, Continuous Delivery, Continuous Deployment, Continuous Monitoring in more automated fashion.
+			
+			
+			
+		SDLC Process :
+		Teams :::
+		
+			DevOps-Team 
+				Infra-Structure Management Team 		--> Terraform,Ansible
+				Application Development Team 			--> IDEs, Sonarlint, GIT/GITHUB, Jenkins 
+				Testing Team 							--> Jenkins, Selenium/Selenium-Grid,TestNG,JUNIT
+				Release Management Team 				--> Jenkins,Ansible,Docker,Kubernetes
+				Production Support/Monitoring Team 		--> Prometheus/Grafana
+				Security Administration Team 			--> Code-Quality Analyzer Tools - SonarQube
+				
+		
+		DevOps based on three factors :
+		
+			- People 
+			- Process 
+			- Tools 
+			
+		
+		DevOps Tools ::
+		
+			Open-Source DevOps Tools :
+			
+				GIT,GITHUB,Jenkins,Docker,Kubernetes,Ansible,Terraform,Prometheus,Grafana
+			
+			
+			Managed Services(Licensed Product)
+				- Cloud Service Providers and Verified Vendor Products - DevOps Tools and Services 
+				
+				
+				AWS 	--> AWS Code Commit, Code Build, Code Deploy, Code Artifacts, Code Pipeline
+				Azure	--> Azure DevOps Services - AzBoards,AzRepo,AzPipeline,AzTest,AzArtifact 
+				GCP 	--> DevOps Service
+			
+		
+			
+			Detailed DevOps Assessment :
+			
+			AWS DevOps Services ::::
+			
+				AWS 	--> AWS Code Commit(GITHUB), Code Build(Jenkins), Code Deploy, Code Artifacts, Code Pipeline(Jenkins)
+				
+				AWS Services :
+				
+					EC2 
+					
+					S3 
+					
+					IAM 
+					
+					AWS DevOps Services :
+						AWS Code Commit, Code Build, Code Deploy, Code Artifacts, Code Pipeline
+						
+					ECS,ECR(dockerhub),EKS 
+					
+					
+			Manage Application Source Code ::::
+			
+				AWS Code Commit :
+				
+			AWS DevOps Services ::::	
+			
+				AWS strongly recommend to avail the AWS DevOps Services as IAM User. NOT as a root user.
+				
+				
+				Create IAM User Account_ID on AWS Platform 
+				
+				
+				
+			GIT Module :::
+			
+				Github Repositories ::
+					git bash / Terminal ?
+					
+					Visual Studio Code IDE ?
+					
+					
+					
+					https://git-codecommit.ap-south-1.amazonaws.com/v1/repos/dcpwe-javaapp-repo1
+					
+					
+				Distributed Version Control System :::
+				
+					Local Machine 							Remote Server
+						Local git Repositories					Remote git Repositories
+					
+						git client								GIT Based tool 
+																(github)
+																	branches and perform parallel development
+																	
+																gitlab 
+																bitbucket
+																aws code commit 
+																azure repository
+																
+						IDEs - Integrated Development Environment 
+
+						Eclipse IDE 		- Develop the Code, integrate the code to remote repositories(github/aws-codecommit)
+						Pycharm 
+						IntelliJ
+						VSC 
+					
+					
+				
+#######################
+Day 3 - 13th July 2024
+#######################					
+
+
+AWS DevOp Services ::
+	AWS Code Commit(GITHUB), Code Build(Jenkins), Code Deploy, Code Artifacts, Code Pipeline(Jenkins)
+
+AWS Code Commit :
+
+	Version control the source code.
+	
+	
+	Create Repo 
+	Create Create/edit files
+	Commit the changes
+	
+	Create Branches	==> Used to enable the parallel development 
+		dev 
+		feature
+		
+		master branch (prod copy of the src_code)				
+		
+		Pull Request 
+
+	Branching Strategies :::
+	
+		--> 
+		
+		Source_Code Repository 
+		
+			Repo1
+				master branch 	(prod copy of the src_code)	
+				
+					- At any point of time, integrity of the master should be maintained.
+	
+	Branching Strategies	
+
+	
+	
+		Repo1
+	
+	Branching Techniques :				
+		Merge 
+		Rebase				
+		Squash					 # Used to Combine more than one commit points to one commit point	
+		stash 					 # Used to save the uncommited changes to a temp area with the git repository
+		cherry-pick 			 # Used to merge specific commit to the target branch 
+		
+		
+	Branching Strategies :
+	
+	Scenario 1:	single user & No Parallel Development Involved 
+	
+		Repo1 
+			master - cm1,cm2,cm3,cm4
+			
+	Scenario 2:
+
+		Repo1 
+			master  - cm1,cm2,cm3
+					- cm1,cm2,cm3,f1cm1,f1cm2,f1cm3		# upon merging feature1
+			
+			
+				feature1 - cm1,cm2,cm3,f1cm1,f1cm2,f1cm3
+
+	Scenario 3:	True parallel Deployment - to preven merge conflict on the master branch
+
+		Repo1 
+			master  - cm1,cm2,cm3
+					- cm1,cm2,cm3,Developer_Branch_Changes
+			
+				Developer_Branch 	- cm1,cm2,cm3
+									- cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,f2cm1,f2cm2,f2cm3	# upon merging f1 & f2 branches
+				
+					feature1 - cm1,cm2,cm3,f1cm1,f1cm2,f1cm3
+					
+					feature2 - cm1,cm2,cm3,f2cm1,f2cm2,f2cm3
+					
+					
+	Scenario 4:
+		Repo1 
+			master  - cm1,cm2,cm3
+			
+				Integration_Branch  - cm1,cm2,cm3
+									- cm1,cm2,cm3,Developer1_Branch_Changes,Developer2_Branch_Changes
+									
+					Developer1_Branch 	- cm1,cm2,cm3
+										- cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,f2cm1,f2cm2,f2cm3	# upon merging f1 & f2 branches
+					
+						feature1 - cm1,cm2,cm3,f1cm1,f1cm2,f1cm3						
+						feature2 - cm1,cm2,cm3,f2cm1,f2cm2,f2cm3			
+
+					Developer2_Branch 	- cm1,cm2,cm3
+										- cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,f2cm1,f2cm2,f2cm3	# upon merging f1 & f2 branches
+					
+						feature1 - cm1,cm2,cm3,f1cm1,f1cm2,f1cm3						
+						feature2 - cm1,cm2,cm3,f2cm1,f2cm2,f2cm3	
+						
+
+	Scenario 5:
+		Repo1 
+			master  - cm1,cm2,cm3
+						- cm1,cm2,cm3,cm4			# cm4 is the integration of Team1 and Team2 Changes
+						
+				Release_Branch  - cm1,cm2,cm3
+								- cm1,cm2,cm3,Team1_Changes,Team2_Changes
+								
+					Integration_Branch1  - cm1,cm2,cm3															# Team1
+										- cm1,cm2,cm3,Developer1_Branch_Changes,Developer2_Branch_Changes
+										
+						Developer1_Branch 	- cm1,cm2,cm3
+											- cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,f2cm1,f2cm2,f2cm3	# upon merging f1 & f2 branches
+						
+							feature1 - cm1,cm2,cm3,f1cm1,f1cm2,f1cm3						
+							feature2 - cm1,cm2,cm3,f2cm1,f2cm2,f2cm3			
+
+						Developer2_Branch 	- cm1,cm2,cm3
+											- cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,f2cm1,f2cm2,f2cm3	# upon merging f1 & f2 branches
+						
+							feature1 - cm1,cm2,cm3,f1cm1,f1cm2,f1cm3						
+							feature2 - cm1,cm2,cm3,f2cm1,f2cm2,f2cm3	
+
+					Integration_Branch2  - cm1,cm2,cm3															# Team2
+										- cm1,cm2,cm3,Developer1_Branch_Changes,Developer2_Branch_Changes
+										
+						Developer1_Branch 	- cm1,cm2,cm3
+											- cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,f2cm1,f2cm2,f2cm3	# upon merging f1 & f2 branches
+						
+							feature1 - cm1,cm2,cm3,f1cm1,f1cm2,f1cm3						
+							feature2 - cm1,cm2,cm3,f2cm1,f2cm2,f2cm3			
+
+						Developer2_Branch 	- cm1,cm2,cm3
+											- cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,f2cm1,f2cm2,f2cm3	# upon merging f1 & f2 branches
+						
+							feature1 - cm1,cm2,cm3,f1cm1,f1cm2,f1cm3						
+							feature2 - cm1,cm2,cm3,f2cm1,f2cm2,f2cm3
+							
+							
+							
+		git merge <branch_name>
+		
+		git merge --squash <branch_name>
+		
+		
+		
+		
+	CODE Build Service ::::
+	
+	
+		Application Build ??? 
+		
+			- Build is a process of compiling the source code and creating artifacts - (Binaries - *.war / *.jar / *.exec / *.dll)
+			
+			
+	Jenkins 
+	
+		Jenkins_Master
+			Jenkins_Slave1 
+	
+	Kubernetes 
+	
+		CICD Pipeline :::
+		
+			- SCM_Checkout 
+			- Application Build 	Java 
+				- Create Build_Server 
+				- Install Build Tools 
+				- Setup the Build Parameters 
+					mvn clean package 
+				
+			- Deploy to Target Environments 
+			
+			
+	AWS Code Build Service :::
+	
+		- Is used to Build the Application and Create Artifact 
+			Maintain the artifacts in the s3 bucket
+		
+	AWS CodeDeploy ::::
+	
+	
+	AWS CodePipeline ::::
+	
+	CICD Pipeline using Jenkins Docker, Kubernetes ???
+	
+		Stages of the pipeline ????		
+		
+			SCM_Checkout
+			Application Build				# Output : *.war 
+			Docker Build using Dockerfile	# Output : app_Image:v1.0
+			Login to DockerHub 
+			Push the Image to DockerHub 
+			Deploy to Kubernetes_Cluster
+			
+			
+	Deployment ?????	
+		
+		What is Deployment ???
+		
+			Build Environment 		- *.war --> myappimg:v1.0 --> myappimg:v2.0
+			
+			QA Environment 	 		- *.war
+
+			UAT Environment 	 	- *.war
+			
+			PROD Environment 	 	- *.war
+			
+			
+		Deployment Strategies :::
+		
+		
+		- Rolling-Update Deployment Strategy 
+		
+			- Able to up-grade/down-grade the applications without any downtime.
+		
+		
+		Kubernetes_Cluster
+			Kubernetes_WorkerNode1		myappimg:v1.0 --> 	myappimg:v2.0
+			Kubernetes_WorkerNode2		myappimg:v1.0 -->   myappimg:v2.0
+			Kubernetes_WorkerNode3		myappimg:v1.0 -->   myappimg:v2.0
+			
+	
+		Environments:
+		
+			Non-Prod											Production Environments
+			
+			Dev Environment
+			Build Environment
+			Testing Environments
+				QA Environment
+				UAT Environment				=====> 					Prod Server(s)
+				
+				
+		Managed Services :::
+		
+		Open Source Tools :
+			git/jenkins/docker/kubernetes/ansible/terraform
+			
+			
+		AWS DevOps Services::
+		
+			Source Code Repositories to maintain all the components 		
+				Dockerfile # To Create Application Image
+				
+		
+	
+		Build Server - Demo ::::
+		
+		
+			Deployment of Applications :::
+			
+				- Containerize the Application
+				
+				- s3 Bucket : 
+				
+					create docker image 
+					
+					push the docker image to container registry 
+					
+					Deploy that docker Image to Kubernetes Cluster
+					
+					
+			Container Services :::
+			
+			Terminologies ::
+			
+				Docker Engine
+				
+				Container Image : 
+					- Static file that defines the properties(Application and its dependencies) of Container 
+					- Images are non-executable 
+					- It composed of various layers create using Dockerfile Instructions 
+					
+					FROM 
+					COPY	--> Used to copy the files from remote machine volume to container volume
+					ADD 	--> Used to copy the files from remote machine volume to container volume and also download the contents from weburl into container volume
+					RUN 	--> Package manager Service - APT/YUM 
+					CMD 	--> Used to define the startup task to a container.
+					
+				
+				Container 
+				
+					- Containers are the executable entity of Container Image
+					- Using the Base Image Container can be executed
+					
+				
+				Container Registry 			dockerhub - 
+					- Used to maintain/version control the container images 
+					
+				
+				Container Repositories
+					- It is subset of Container Registry 
+				
+				Docker Run 
+				
+					- Used to Create Container and runs the container based on the execution mode
+
+					- Interactive Mode 
+					- Background Mode 
+					- Foreground Mode 
+					
+				Build Container Image 
+				
+					- Dockerfile 
+					
+					- Docker Commit
+				
+			Container Registry :::
+			
+				Dockerhub 
+		
+		
+			AWS : ECS,ECR,EKS 
+			
+				
+				
+#######################
+Day 4 - 14th July 2024
+#######################	
+	
+	
+		AWS : ECS,ECR,EKS  ===> 
+		
+		
+		Source Code Repository in github
+		
+		
+		Kubernetes ::
+			Installation and Configuration using kubeadm :
+			
+			Deploy the pods and monitor using prometheus/grafana using HELM Package Manager 
+			
+			(or) 
+			
+			minikube 
+			
+		Terraform 
+		
+		
+		IAC Tools :::
+		
+			Infra-Structure As Code :
+			
+				Terraform/Cloudformation
+
+		
+	Kubernetes ::
+		Installation and Configuration using kubeadm :
+		
+												Build_Server (jdk,git,maven)		Tomcat_Server (jdk,tomcat,start_tomcat_Service)
+		Pre-requisites																
+		
+		Install kubernetes components 
+		
+		Post-Installation Activities 
+		
+		
+		Official Documentation ::::
+		
+			https://kubernetes.io/docs/setup/
+		
+		
+		Kubernetes_Master 				private ip_addr
+			Kubernetes_WorkerNode1
+			Kubernetes_WorkerNode2
+			
+			
+		
+		Launch the Required no. of nodes 
+		
+		Master_Node & Worker_Nodes 
+		
+		Terraform
+		
+		shell script / groovy scripting / yaml scripting / python scripting 
+		
+		
+		Terraform 
+		Cloud formation templates
+		EKS, EBS
+		Monitoring Kubernetes using Prometheus/Grafana
+		Overview of Nagios
+			
+		Linux - ?
+		
+		
+		
+		dev - qa - uat - prod 
+		
+		
+
+
+#######################
+Day 5 - 20th July 2024
+#######################	
+
+
+	AWS Code Commit
+	
+	AWS Code Build 
+	
+	Setup the Kubernetes Cluster
+	
+	
+	Deployments ::
+	
+		- On EC2 Instance 		
+		
+		- Code Deploy 
+		
+		- Code Pipeline 
+		
+	AWS Code Deploy Service to Deploy the Application on EC2 
+	
+	Springboot web application 
+	
+	
+	AWS Code Build ::::
+	
+	
+	
+	AWS Code Deploy Service 
+	
+	AWS Code Pipeline Service 
+	
+
+	
+edu-webapp-bp1-role1
+
+edu-webapp-cd-role1				# Code Deploy used during Code Deploy Application Creation 
+
+
+edu-webapp-cd-ec2-policy		# policy to attach with EC2 Instance Role
+
+edu-webapp-cd-ec2-role			# Should be attached to the EC2 Instance 
+
+https://loksai-webapp-s3-bucket.s3.ap-south-1.amazonaws.com/loksai-webapp-dir1/loksai-webapp-cbproj1
+
+
+Using CodeDeploy :
+
+	Target Server : Install the CodeDeploy Agent
+	
+	Install Code Deploy Agent for Amazon Linux2 :
+	https://docs.aws.amazon.com/codedeploy/latest/userguide/codedeploy-agent-operations-install-linux.html
+	
+	Resource kit Bucket Name reference:
+	
+	https://docs.aws.amazon.com/codedeploy/latest/userguide/resource-kit.html#resource-kit-bucket-names
+
+	Target Server : Install the CodeDeploy Agent
+	
+edu-webapp-cd-application1
+
+edu-webapp-cd-application1-dg
+
+Blue Green Deployment ::
+
+Deployment Server1		--> LIVE Environment - Active  v1.0 - Truncate this 
+
+Deployment Server2		--> Passive Environment -> v2.0			ACTIVE 
+
+Major Releases 
+
+Minor Releases
+ 
+https://loksai-webapp-s3-bucket.s3.ap-south-1.amazonaws.com/loksai-webapp-dir1/loksai-webapp-cbproj1
+
+
+CodeDeploy!
+
+Automate :
+
+Code Pipeline ::::
+
+
+
+
+
+#######################
+Day 6 - 21st July 2024
+#######################	
+
+	Deployments using Kubernetes (Container Orchestration Tool)
+	
+	Containerized Application
+	
+	Docker - Container Engine.
+	
+		Create application Images 
+		
+		Published to Container Registry 
+		
+		Deployed to Kubernetes_Cluster 
+		
+	
+	Kubernetes Objects :
+	
+		- Controller Object 
+			Deployment Controller Object ?
+			
+		- Service 
+			- NodePort 
+			
+
+Jenkins CICD Pipeline :
+
+Stages of the CICD :::	
+
+1. SCM_Checkout
+2. Build using Maven 		*.war 
+3. Deployed the artifacts to Target Server  *.war 
+
+CICD 
+
+Microservices ::
+
+Containerize the Service :
+
+CICD Pipeline :
+
+1. SCM_Checkout
+2. Application Build 	-> output : artifacts - *.war / *.jar 
+3. Docker Build 		-> output : Application Image using Dockerfile 
+4. Login to Dockerhub Registry
+5. Push Application Image to Dockerhub Registry 
+6. Deploy the Application Image to Kubernetes_Cluster
+
+
+Infra-Structure ::
+
+	Servers:
+	
+		Jenkins_Master 				#	Create CICD Pipeline Projects & Schedule to run on slave nodes.
+			Build_Server 			# 	Run the Builds & Create Artifacts
+									#	Build Docker Image, Publish the Image to Container Registry 
+		Kubernetes_Master 			# 	Target Environment - QA/UAT/PROD
+			Kubernetes_WorkerNode1
+			Kubernetes_WorkerNode2
+	
+	
+	Tools: 
+		
+		Jenkins_Master 				#	git,jdk,Jenkins
+			Build_Server 			#	git,jdk,maven,docker	SCM_Checkout - *.yaml
+		Kubernetes_Master 			#	Kubernetes Component 
+			Kubernetes_WorkerNode1
+			Kubernetes_WorkerNode2
+		
+	Integrate the Servers:
+	
+		Jenkins_Master 				#  Jenkins Node configuration 
+			Build_Server
+			
+		Jenkins Master should be integrated with Kubernetes_Master 
+			- using Publish over ssh plugins
+			- SSH Command - SCP 
+
+
+	CICD Pipeline :
+		slave_Node
+
+
+	Jenkins_Master 				#	Create CICD Pipeline Projects & Schedule to run on slave nodes.
+		Build_Server 			# 	Run the Builds & Create Artifacts
+								#	Build Docker Image, Publish the Image to Container Registry 
+
+
+	1. SCM_Checkout
+	2. Application Build 	-> output : artifacts - *.war / *.jar 
+	3. Docker Build 		-> output : Application Image using Dockerfile 
+	4. Login to Dockerhub Registry
+	5. Push Application Image to Dockerhub Registry 
+	
+	Kubernetes_Master 			#
+		Kubernetes_WorkerNode1
+		Kubernetes_WorkerNode2
+	
+	6. Deploy the Application Image to Kubernetes_Cluster
+	
+	
+	Infra-Structure
+	Deployment Environments:::
+	
+	Non-Prod :::
+	
+		Dev 		pod 
+		QA 			pod 	
+		UAT			pod  
+
+		Kubernetes_Master 	(Non-Prod - Kubernetes_Cluster)
+			Kubernetes_WorkerNode1
+			Kubernetes_WorkerNode2
+			
+		Dev - Namespace
+		QA 	- Namespace
+		UAT - Namespace
+
+
+	Production Environments :::	
+	
+		Kubernetes_Master 	(Prod - Kubernetes_Cluster)
+			Kubernetes_WorkerNode1
+			Kubernetes_WorkerNode2
+
+		ACTIVE 	- Namespace		--> LIVE Application	--> v1.0
+		
+		PASSIVE - Namespace 	--> Deploy	v2.0	
+		
+		Blue Green Deployment!
+		
+		
+		
+
+
+
+
+	
+	
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: loksai-eta-deploy
+  labels:
+    app: loksai-eta-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: loksai-eta-app
+  template:
+    metadata:
+      labels:
+        app: loksai-eta-app
+    spec:
+      containers:
+      - name: loksai-eta-container
+        image: loksaieta/loksai-eta-app
+        ports:
+        - containerPort: 8080
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: loksai-eta-np-service
+  labels:
+    app: loksai-eta-app
+spec:
+  selector:
+    app: loksai-eta-app
+
+  type: NodePort
+  ports:
+  - nodePort: 31028
+    port: 8080
+    targetPort: 8080
+
+
+#On Build Server :
+
+apt install awscli -y 				# AWS CLI 
+
+aws configure 
+
+aws access code 
+aws secret
+aws region 
+
+NF4RQ
+
+/
+
+ap-south-1
+
+docker tag loksaieta/loksai-eta-app:latest 471112633224.dkr.ecr.ap-south-1.amazonaws.com/edu-ecr1:latest
+loksaieta/loksai-eta-app
+
+
+
+#######################
+Day 7 - 27th July 2024
+#######################	
+
+
+	Nagios Monitoring Tool:
+
+
+	Daemonset ?
+	
+		- Used to Deploy a copy of pod in all the worker nodes
+		- Kubernetes Administration:
+			Monitor the cluster 
+			Exec the logging tools in all the worker nodes 
+			
+			docker hub 
+				image - prometheus/grafana 
+				logger tools - influentd
+		
+		
+	Replicaset (vs) Daemonset 
+	
+	Replicaset ?
+		
+		- Used to Deploy specific no. of pods in the worker nodes 
+	
+	
+	pod - replicasets - 3 :
+	
+	Kubernetes_Master
+		Kubernetes_WorkerNode1	2	4 3	1	1
+		Kubernetes_WorkerNode2	2	1 3	1	1
+		Kubernetes_WorkerNode3	2	1	1	1	
+		
+
+
+Infra-Structure Structure Provisioning :::
+
+	IAC Tools :
+	
+		Server templates 		Configuration Management		Server Provisioning 
+		
+		
+		Docker Image				ansible/chef/puppet				terraform/Cloudformation templates(AWS)/ARM(Azure)
+		
+		AMI to spinup the VMs
+		create own ami 
+		
+		
+IAC Tools :
+
+	Cloudformation 
+	
+	
+	Terraform :::
+	
+		Use case of Terraform
+		
+		Install and work with terraform
+		
+		Terraform Registry
+		
+		
+		
+	Terraform Working Model :::
+	
+		Identify the scope		- Target Environment 							EC2 instance	/  Virtual Machine 
+		Write the terraform script based on the target Environment 
+		Terraform Init	- To download the terraform Provider to the terraform project
+		Terraform Plan  - To preview the script 
+		Terraform Apply - Implement the actual changes in the target platform 
+		
+	Terraform Registry 
+	
+	Terraform Installation		https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
+	
+	
+	Terraform Statefile    	# Is used to maintain the current state of the Target Environment.
+							# Prevent the duplicate resources
+	
+	Using Terraform ::
+	
+		====>  Create/Add Resource 			+ 
+		
+		====>  Destroy/Delete Resource 		-
+			
+		====>  Change/Alter Resource 		~ 
+		
+		
+	Related to DevOps ???
+	
+	Jenkins :
+	
+	pipeline:
+	
+		- scm_checkout
+		- build
+		- deploy to tomcat server
+		
+		
+	adhoc request - hotfix prod
+	
+	
+	Dynamically Create some test servers - adhoc request - hotfix
+	
+	Scenario 1:
+	
+		Pipeline 1:
+		
+			scm_checkout --> Create Test Server(Terraform) --> Configure Test server(Ansible)
+			
+		Pipeline 2: CI/CD
+			
+			- scm_checkout --> build --> deploy to Newly created test server		
+		
+	GITOps ::
+
+	Scenario 2:
+	
+		Pipeline 1:
+
+			scm_checkout --> build --> Create Test Server(Terraform) --> Configure Test server(Ansible) --> deploy to Newly created test server
+																														|
+																														|
+																														|
+																													  QA Testing
+																													    |
+																														|
+																														|
+			
+
+	Scenario 3: - Best Practise!
+	
+		Pipeline 1:
+
+			scm_checkout --> build --> Create Test Server(Terraform) --> Configure Test server(Ansible) --> deploy to Newly created test server 
+																														|
+																														|
+																														|
+																													  QA Testing
+																													    |
+																														|
+																														|
+																												Delete the Test Server(Terraform) 
+																												
+																												
+																											
+																											
+	Working with Terraform ::
+	
+		Install terraform in local windows machine 
+			https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
+			
+		Visual Studio Code IDE To create Terraform scripts
+			https://code.visualstudio.com/download
+			
+			
+
+
+
+#######################
+Day 8 - 28th July 2024
+#######################	
+
+	Monitoring and AWS DevOps Services :
+	
+	IAC Tools - Terraform - shell - cloudformation
+
+	Kubernetes ::
+	
+		Deployment :
+		
+		HELM Charts ::
+		
+			Helm Chart is a package manager for kubernetes!
+			
+			kubernetes Dashboard 
+			
+			Monitoring - Prometheus/Grafana 
+			
+			
+			Install helm! on Kubernetes master
+			
+			install 
+			
+	VM :
+	
+		Install any package ?
+			Package manager like yum / apt / dnf
+			
+		Package :
+		
+			kubernetes
+				Kubernetes_WorkerNode1,2,3,4,5

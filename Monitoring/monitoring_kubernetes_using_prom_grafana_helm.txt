@@ -1,0 +1,91 @@
+HELM Chart:::
+Helm is a pkg manager for kubernetes
+which help to automatically create manifest files for any kubernetes objects in the form of HELM Charts
+
+HELM Chart for prometheus
+
+Eg.: Kubernetes Dashboard installation using HELM
+
+Install HELM 
+on kubernetes master node install Helm
+
+#Downlaod helm tar ball for linux
+
+
+
+https://github.com/helm/helm/releases/tag/v3.14.0
+
+
+
+
+wget https://get.helm.sh/helm-v3.14.0-linux-amd64.tar.gz
+
+#Extract tar ball
+
+tar -zxvf helm-v3.14.0-linux-amd64.tar.gz 
+
+#Move helm to usr/local/bin/helm
+sudo mv linux-amd64/helm /usr/local/bin/helm
+
+#run helm
+helm
+
+#Install Kubernetes Dashboard using Helm
+
+helm repo add kubernetes-dashboard https://kubernetes.github.io/dashboard
+
+helm install kubernetes-dashboard kubernetes-dashboard/kubernetes-dashboard
+
+kubectl get svc 
+
+#choose kubernetes-dashboard service 
+
+kubectl edit svc kubernetes-dashboard-kong-proxy
+
+#goto type: key && Change ClusterIP to NodePort & save the file
+
+#30000 - 32767 
+
+#Now check the service, it should show you, NortPort with Nodeport IP
+
+kubectl get svc 
+
+# Now use the external IP & Nodeport to access the dashboard. When it asked for token, execute following commands to create service account & token
+
+kubectl create serviceaccount dashboard -n default
+
+kubectl create clusterrolebinding dashboard-admin -n default --clusterrole=cluster-admin --serviceaccount=default:dashboard
+
+kubectl create token dashboard
+
+Take the public_ip address fo kubernetes master node. 
+Eg>: https://<k_master_public_ip_address:<NodePort>/
+
+Change http tp https as shown below ::
+3.110.159.176
+
+https://3.110.159.176:30966/
+
+
+
+
+helm search hub Prometheus
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
+helm install prometheus prometheus-community/prometheus
+kubectl get all
+kubectl get service
+kubectl expose service prometheus-server --type=NodePort --target-port=9090 --name=prometheus-server-ext
+#kubectl edit svc prometheus-server
+kubectl get service
+kubectl get pods --all-namespaces
+helm search hub grafana
+helm repo add grafana https://grafana.github.io/helm-charts
+helm repo update
+helm install grafana grafana/grafana
+kubectl get service
+kubectl expose service grafana --type=NodePort --target-port=3000 --name=grafana-ext
+
+
+kubectl get secret --namespace default grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+
